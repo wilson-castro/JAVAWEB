@@ -13,6 +13,7 @@
       <servlet-name>servletOiMundo</servlet-name>
       <url-pattern>/oi</url-pattern>
   </servlet-mapping>
+
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

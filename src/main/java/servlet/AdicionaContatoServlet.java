@@ -21,20 +21,21 @@ public class AdicionaContatoServlet extends HttpServlet {
     protected void service(HttpServletRequest request,
             HttpServletResponse response)
             throws IOException, ServletException {
-
+        // busca o writer
         PrintWriter out = response.getWriter();
 
-        // pegando os parâmetros do request
+        // buscando os parâmetros no request
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
         String email = request.getParameter("email");
-        String dataEmTexto = request.getParameter("dataNascimento");
+        String dataEmTexto = request
+                .getParameter("dataNascimento");
         Calendar dataNascimento = null;
 
         // fazendo a conversão da data
         try {
             Date date = new SimpleDateFormat("dd/MM/yyyy")
-                    .parse(dataEmTexto);
+                  .parse(dataEmTexto);
             dataNascimento = Calendar.getInstance();
             dataNascimento.setTime(date);
         } catch (ParseException e) {
@@ -57,7 +58,7 @@ public class AdicionaContatoServlet extends HttpServlet {
         out.println("<html>");
         out.println("<body>");
         out.println("Contato " + contato.getNome() +
-                " adicionado com sucesso");       
+                " adicionado com sucesso");
         out.println("</body>");
         out.println("</html>");
     }
